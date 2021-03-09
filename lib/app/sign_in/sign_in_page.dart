@@ -2,22 +2,22 @@ import 'package:Time_Tracker_Flutter/app/sign_in/sign_in_button.dart';
 import 'package:Time_Tracker_Flutter/app/sign_in/social_sign_in_button.dart';
 import 'package:Time_Tracker_Flutter/common_widgets/custom_raised_widget.dart';
 import 'package:Time_Tracker_Flutter/services/auth.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignInPage extends StatelessWidget {
-  const SignInPage({Key key, @required this.auth, @required this.onSignIn})
+  const SignInPage({Key key, @required this.auth,})
       : super(key: key);
-  final void Function(User) onSignIn;
+ 
   final AuthBase auth;
 
   Future<void> _signInAnonymously() async {
     try {
-      final user = await auth.signInAnonymously();
+     await auth.signInAnonymously();
       // print('${_userCredentials.user.uid}');
-      onSignIn(user);
+   
     } catch (e) {
       print(e.toString());
     }
